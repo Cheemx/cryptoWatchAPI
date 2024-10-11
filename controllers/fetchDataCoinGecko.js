@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Coin } from '../models/Coin.js';
+import cron from "node-cron"
 
 const fetchCryptoData = async () => {
     try {
@@ -34,5 +35,9 @@ const fetchCryptoData = async () => {
         console.error("Error fetching crypto data:", error.message);
     }
 };
+
+cron.schedule("0 */2 * * *", () => {
+    fetchCryptoData();
+});
 
 export default fetchCryptoData

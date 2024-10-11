@@ -9,7 +9,9 @@ dotenv.config()
 connectDB()
 .then(() => {
     // Schedule the fetchCryptoData job to run every 2 hours
-    cron.schedule("0 */2 * * *", fetchCryptoData);
+    cron.schedule("0 */2 * * *", () => {
+        fetchCryptoData();
+    });
 
     // Start the server
     app.listen(process.env.PORT || 3000, () => {
