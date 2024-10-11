@@ -10,6 +10,7 @@ connectDB()
 .then(() => {
     // Schedule the fetchCryptoData job to run every 2 hours
     cron.schedule("0 */2 * * *", () => {
+        console.log("Crypto data fetched!");        
         fetchCryptoData();
     });
 
