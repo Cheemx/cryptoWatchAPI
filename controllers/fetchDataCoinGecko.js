@@ -38,7 +38,7 @@ const fetchCryptoData = async () => {
 
 cron.schedule("0 */2 * * *", () => {
     fetchCryptoData();
-});
+}).start()
 fetchCryptoData()
 setInterval(fetchCryptoData, 2*60*60*1000) // additional scheduling!!!
 

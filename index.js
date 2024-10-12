@@ -12,7 +12,7 @@ connectDB()
     cron.schedule("0 */2 * * *", () => {
         console.log("Crypto data fetched!");        
         fetchCryptoData();
-    });
+    }).start()
 
     // Start the server
     app.listen(process.env.PORT || 3000, () => {
